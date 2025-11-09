@@ -87,12 +87,12 @@ console.log(createEmployee('$500').constructor.name); // Director
 
 
 // Type predicate function
-function isDirector(employee: Director | Teacher): employee is Director {
+export function isDirector(employee: Director | Teacher): employee is Director {
   return (employee as Director).workDirectorTasks !== undefined;
 }
 
 // Execute work function
-function executeWork(employee: Director | Teacher): string {
+export function executeWork(employee: Director | Teacher): string {
   if (isDirector(employee)) {
     return employee.workDirectorTasks();
   } else {
@@ -103,3 +103,4 @@ function executeWork(employee: Director | Teacher): string {
 // Examples
 console.log(executeWork(createEmployee(200)));  // Getting to work
 console.log(executeWork(createEmployee(1000))); // Getting to director tasks
+
